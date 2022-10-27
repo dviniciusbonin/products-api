@@ -18,6 +18,8 @@ WORKDIR /home/app
 
 COPY package*.json ./
 
+COPY prisma ./prisma/
+
 RUN npm install --production
 
 COPY --from=build /home/app/dist ./dist
