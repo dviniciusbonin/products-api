@@ -10,20 +10,3 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
       - "5431:5432"
-    networks:
-      - nesjs-network
-  prod:
-    container_name: products-api
-    build:
-      context: .
-      target: production
-    depends_on: 
-      - database
-    ports:
-      - ${PORT}:${PORT}
-    restart: unless-stopped
-    networks:
-      - nesjs-network
-
-networks:
-  nesjs-network:

@@ -12,6 +12,9 @@ export class ProductsService {
     limit = 10,
     page = 1,
   }: PaginationDTO & FilterDTO) {
+    page <= 0 ? (page = 1) : page;
+    limit <= 0 ? (limit = 10) : limit;
+
     const products = await this.prismaService.product.findMany({
       orderBy: {
         name: 'asc',
@@ -21,8 +24,8 @@ export class ProductsService {
           equals: +days_to_expiration,
         },
       },
-      skip: (page - 1) * limit,
-      take: limit,
+      skip: (+page - 1) * +limit,
+      take: +limit,
     });
 
     return products;
