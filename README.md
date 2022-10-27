@@ -2,7 +2,7 @@
 
 Copie o env.example para um novo arquivo .env (As variaveis estão com exemplo de valores, podendo ser alterado)
 
-Inicie um container para o banco de dados com ``` docker-compose up -d````
+Inicie um container para o banco de dados com ``` docker-compose up -d```
 
 Para iniciar a aplicação execute: ```sh scripts/deploy.sh```
 
