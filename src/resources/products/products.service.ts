@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/common/prisma.service';
+import { PrismaService } from '../../common/prisma.service';
 import { PaginationDTO } from './dto/pagination.input';
 import { FilterDTO } from './dto/filter.input';
 
@@ -19,7 +19,7 @@ export class ProductsService {
       orderBy: {
         name: 'asc',
       },
-      where: {
+      where: days_to_expiration && {
         days_to_expiration: {
           equals: +days_to_expiration,
         },
